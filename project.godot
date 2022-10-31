@@ -23,22 +23,16 @@ _global_script_classes=[ {
 "class": "GameLog",
 "language": "GDScript",
 "path": "res://Scripts/GameLog.gd"
-}, {
-"base": "Resource",
-"class": "LocationData",
-"language": "GDScript",
-"path": "res://Resources/Locations/LocationData.gd"
 } ]
 _global_script_class_icons={
 "AppLog": "",
 "AppSettings": "",
-"GameLog": "",
-"LocationData": ""
+"GameLog": ""
 }
 
 [application]
 
-config/name="GameJamBoilerPlate-gdscript"
+config/name="No Time For Call"
 run/main_scene="res://Scenes/InitApp/InitApp.tscn"
 config/icon="res://icon.png"
 
@@ -98,7 +92,7 @@ interact={
 
 [mono]
 
-project/assembly_name="Ritual Game"
+project/assembly_name="No Time For Call Game"
 
 [physics]
 
