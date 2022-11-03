@@ -1,6 +1,6 @@
 extends Node2D
 
-const NEXT_DIALOG_RATE = 1
+const NEXT_DIALOG_RATE = 2
 
 onready var dialog_countdown_timer = 0
 onready var rng = RandomNumberGenerator.new()
@@ -18,7 +18,7 @@ func _process(delta):
 	dialog_countdown_timer += delta
 	if dialog_countdown_timer >= NEXT_DIALOG_RATE:		
 		dialog_countdown_timer = 0
-		popup_random_call_sequence()		
+		popup_random_call_sequence()
 	
 
 func popup_random_call_sequence():
@@ -45,7 +45,10 @@ func popup_random_call_sequence():
 	dialog.dialog_text = eventDict["Text"]
 	dialog.add_button(eventDict["CorrectAnswerText"], false, "correct")
 	dialog.add_button(eventDict["WrongAnswerText"], false, "wrong")
+	dialog.modulate = Color(call_sequence["color"])
 	$Dialogs.add_child(dialog)
 	dialog.popup()
-	return call_sequence
+	
+	# TODO - Show 3s timer bar
+	# TODO - Connect Signals for BTN clicks
 
