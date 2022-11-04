@@ -1,18 +1,19 @@
 extends Node2D
 
-const NEXT_DIALOG_RATE = 2
+const NEXT_DIALOG_RATE = 3
 
 onready var dialog_countdown_timer = 0
 onready var rng = RandomNumberGenerator.new()
 var call_sequence_data : Dictionary
 var call_sequence_event_tracker : Dictionary
-var no_thyme_sequence = preload("res://Resources/Call Sequences/NoThyme.tres")
+var NoTimeSequence = preload("res://Resources/Call Sequences/NoThyme.tres")
+var CallDialog = preload("res://Scenes/Game/CallDialog.tscn");
 
 
 
 func _ready():		
-	call_sequence_data[no_thyme_sequence.sequence_id] =  no_thyme_sequence
-	call_sequence_event_tracker[no_thyme_sequence.sequence_id] = 0
+	call_sequence_data[NoTimeSequence.sequence_id] =  NoTimeSequence
+	call_sequence_event_tracker[NoTimeSequence.sequence_id] = 0
 	
 func _process(delta):
 	dialog_countdown_timer += delta
@@ -39,15 +40,23 @@ func popup_random_call_sequence():
 	call_sequence_event_tracker[call_sequence.sequence_id] += 1 #increment event index for next time.
 	
 	# construct Dialog
-	var dialog = AcceptDialog.new()
+	construct_dialog(eventDict, call_sequence["color"])
+
+func construct_dialog(eventDict, color):
+	var dialog = CallDialog.instance()
 	dialog.get_ok().visible = false
+	dialog.get_close_button().visible = false
 	dialog.window_title = eventDict["CallerName"]
 	dialog.dialog_text = eventDict["Text"]
 	dialog.add_button(eventDict["CorrectAnswerText"], false, "correct")
 	dialog.add_button(eventDict["WrongAnswerText"], false, "wrong")
-	dialog.modulate = Color(call_sequence["color"])
+	dialog.modulate = Color(color)
 	$Dialogs.add_child(dialog)
-	dialog.popup()
+	
+	# setting random position and using show() instead of popup() so that we can interact with other popups
+	# but not auto-hide the popup when clicked outside
+	dialog.set_position(Vector2(rand_range(100, 400), rand_range(100, 400)))
+	dialog.show() 
 	
 	# TODO - Show 3s timer bar
 	# TODO - Connect Signals for BTN clicks

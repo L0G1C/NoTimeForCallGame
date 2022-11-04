@@ -1,9 +1,29 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
 [ext_resource path="res://Resources/Call Sequences/no_thyme_sequence.gd" type="Script" id=1]
-[ext_resource path="res://Assets/NoThymeIcon.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Textures/NoThymeIcon.png" type="Texture" id=2]
 
 [resource]
 script = ExtResource( 1 )
+sequence_id = 0
 color = "CCCCFF"
 icon = ExtResource( 2 )
+Events = [ {
+"CallerName": "Cal",
+"CallerVoice": "callervoice1",
+"CorrectAnswerResults": [ 1, 1, 1 ],
+"CorrectAnswerText": "No way, man.",
+"EventId": 0,
+"Text": "Hey man, can I get take that Thyme off your hands?!",
+"WrongAnswerResults": [ -1, -1, -1 ],
+"WrongAnswerText": "Sure!"
+}, {
+"CallerName": "Cal",
+"CallerVoice": "callervoice1",
+"CorrectAnswerResults": [ 1, 1, 1 ],
+"CorrectAnswerText": "Fuck off, bro!",
+"EventId": 1,
+"Text": "Dude...I really need that thyme tho...",
+"WrongAnswerResults": [ -2, -2, -2 ],
+"WrongAnswerText": "Ugh, fine."
+} ]
