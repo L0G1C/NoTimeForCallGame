@@ -1,6 +1,6 @@
 extends Node2D
 
-const NEXT_DIALOG_RATE = 3
+const NEXT_DIALOG_RATE = 5
 
 onready var dialog_countdown_timer = 0
 onready var rng = RandomNumberGenerator.new()
@@ -57,7 +57,7 @@ func construct_dialog(eventDict, color):
 	# but not auto-hide the popup when clicked outside
 	dialog.set_position(Vector2(rand_range(100, 400), rand_range(100, 400)))
 	dialog.show() 
-	
-	# TODO - Show 3s timer bar
+		
 	# TODO - Connect Signals for BTN clicks
+	dialog.connect("custom_action", dialog, "handle_dialog_buttons")
 

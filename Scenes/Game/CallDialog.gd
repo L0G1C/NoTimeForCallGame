@@ -16,3 +16,16 @@ func _on_ProgressTimer_timeout():
 			self.hide()
 			# TODO -  Call Game Manager failure
 			queue_free()
+			
+func handle_dialog_buttons(action):
+	match (action):
+		"correct":
+			# TODO -  Call Game Manager success
+			print("Correct!")
+			self.hide()
+			self.queue_free()
+		"wrong":
+			# TODO -  Call Game Manager failure
+			print("WRONG!")
+			self.hide()
+			self.queue_free()
