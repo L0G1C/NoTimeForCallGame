@@ -1,12 +1,17 @@
 extends AcceptDialog
 
 var progress_timeout = false
+var correct_results : Array
+var wrong_results : Array
 onready var pBar = $BackgroundPanel/VBoxContainer/ProgressBar
+
+signal success
+signal fail
 
 func _ready():
 	pass # Replace with function body.
 
-func _process(delta):
+func _process(_delta):
 	pBar.get_node(("Label")).text = String(pBar.value)
 
 func _on_ProgressTimer_timeout():
@@ -14,18 +19,16 @@ func _on_ProgressTimer_timeout():
 			pBar.value -= 1
 		else:
 			self.hide()
-			# TODO -  Call Game Manager failure
+			emit_signal("fail", wrong_results)
 			queue_free()
 			
 func handle_dialog_buttons(action):
 	match (action):
 		"correct":
-			# TODO -  Call Game Manager success
-			print("Correct!")
+			emit_signal("success", correct_results)
 			self.hide()
 			self.queue_free()
 		"wrong":
-			# TODO -  Call Game Manager failure
-			print("WRONG!")
+			emit_signal("fail", wrong_results)
 			self.hide()
 			self.queue_free()

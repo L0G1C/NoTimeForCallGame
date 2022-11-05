@@ -9,11 +9,9 @@ var call_sequence_event_tracker : Dictionary
 var NoTimeSequence = preload("res://Resources/Call Sequences/NoThyme.tres")
 var CallDialog = preload("res://Scenes/Game/CallDialog.tscn");
 
-
-
 func _ready():		
 	call_sequence_data[NoTimeSequence.sequence_id] =  NoTimeSequence
-	call_sequence_event_tracker[NoTimeSequence.sequence_id] = 0
+	call_sequence_event_tracker[NoTimeSequence.sequence_id] = 0	
 	
 func _process(delta):
 	dialog_countdown_timer += delta
@@ -50,7 +48,11 @@ func construct_dialog(eventDict, color):
 	dialog.dialog_text = eventDict["Text"]
 	dialog.add_button(eventDict["CorrectAnswerText"], false, "correct")
 	dialog.add_button(eventDict["WrongAnswerText"], false, "wrong")
+	dialog.correct_results = eventDict["CorrectAnswerResults"]
+	dialog.wrong_results = eventDict["WrongAnswerResults"]
 	dialog.modulate = Color(color)
+	dialog.connect("success", self, "dialog_success")
+	dialog.connect("fail", self, "dialog_fail")
 	$Dialogs.add_child(dialog)
 	
 	# setting random position and using show() instead of popup() so that we can interact with other popups
@@ -58,6 +60,14 @@ func construct_dialog(eventDict, color):
 	dialog.set_position(Vector2(rand_range(100, 400), rand_range(100, 400)))
 	dialog.show() 
 		
-	# TODO - Connect Signals for BTN clicks
 	dialog.connect("custom_action", dialog, "handle_dialog_buttons")
 
+func dialog_success(results_array):
+	$CanvasLayer/WorkLifeContainer/Resources/Money/ProgressBar.value += results_array[0]
+	$CanvasLayer/WorkLifeContainer/Resources/Family/ProgressBar.value += results_array[1]
+	$CanvasLayer/WorkLifeContainer/Resources/Sanity/ProgressBar.value += results_array[2]
+	
+func dialog_fail(results_array):
+	$CanvasLayer/WorkLifeContainer/Resources/Money/ProgressBar.value += results_array[0]
+	$CanvasLayer/WorkLifeContainer/Resources/Family/ProgressBar.value += results_array[1]
+	$CanvasLayer/WorkLifeContainer/Resources/Sanity/ProgressBar.value += results_array[2]

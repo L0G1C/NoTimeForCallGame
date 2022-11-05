@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scenes/Game/UI/ResourceContainer.gd" type="Script" id=1]
+
+[node name="ResourceContainer" type="VBoxContainer"]
+margin_right = 286.0
+margin_bottom = 32.0
+rect_min_size = Vector2( 0, 20 )
+alignment = 1
+script = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="."]
+margin_right = 286.0
+margin_bottom = 14.0
+text = "Resource"
+align = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+margin_top = 18.0
+margin_right = 286.0
+margin_bottom = 38.0
+rect_min_size = Vector2( 0, 20 )
+max_value = 10.0
+percent_visible = false
