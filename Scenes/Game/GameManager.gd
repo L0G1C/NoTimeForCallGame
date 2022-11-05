@@ -61,6 +61,9 @@ func construct_dialog(eventDict, color):
 	dialog.show() 
 		
 	dialog.connect("custom_action", dialog, "handle_dialog_buttons")
+	
+func game_over():
+	SceneLoader.load_scene("")
 
 func dialog_success(results_array):
 	$CanvasLayer/WorkLifeContainer/Resources/Money/ProgressBar.value += results_array[0]
@@ -71,3 +74,15 @@ func dialog_fail(results_array):
 	$CanvasLayer/WorkLifeContainer/Resources/Money/ProgressBar.value += results_array[0]
 	$CanvasLayer/WorkLifeContainer/Resources/Family/ProgressBar.value += results_array[1]
 	$CanvasLayer/WorkLifeContainer/Resources/Sanity/ProgressBar.value += results_array[2]
+
+
+func _on_Money_resource_empty():
+	game_over()
+
+
+func _on_Family_resource_empty():
+	pass # Replace with function body.
+
+
+func _on_Sanity_resource_empty():
+	pass # Replace with function body.

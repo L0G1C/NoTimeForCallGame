@@ -70,3 +70,7 @@ script = ExtResource( 3 )
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager"]
 stream = ExtResource( 4 )
 volume_db = -10.488
+
+[connection signal="resource_empty" from="CanvasLayer/WorkLifeContainer/Resources/Money" to="." method="_on_Money_resource_empty"]
+[connection signal="resource_empty" from="CanvasLayer/WorkLifeContainer/Resources/Family" to="." method="_on_Family_resource_empty"]
+[connection signal="resource_empty" from="CanvasLayer/WorkLifeContainer/Resources/Sanity" to="." method="_on_Sanity_resource_empty"]
