@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Themes/Fonts/48-Roboto-font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Scenes/UI/SoundButton/SoundButton.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Themes/Fonts/22-Roboto-font.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Scenes/Game/UI/GameOver.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/UI/SoundManager.tscn" type="PackedScene" id=5]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.117647, 0.113725, 0.113725, 1 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+
+[node name="GameOver" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+
+[node name="Panel" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+margin_left = 2.0
+margin_top = 2.0
+margin_right = 1278.0
+margin_bottom = 718.0
+custom_constants/margin_right = 50
+custom_constants/margin_top = 50
+custom_constants/margin_left = 50
+custom_constants/margin_bottom = 50
+
+[node name="TitleRow" type="VBoxContainer" parent="Panel/MarginContainer"]
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 1226.0
+margin_bottom = 666.0
+custom_constants/separation = 160
+
+[node name="Title" type="Label" parent="Panel/MarginContainer/TitleRow"]
+margin_right = 1176.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 1 )
+text = "GAME OVER"
+align = 1
+
+[node name="SubTitle" type="Label" parent="Panel/MarginContainer/TitleRow"]
+margin_top = 217.0
+margin_right = 1176.0
+margin_bottom = 244.0
+custom_fonts/font = ExtResource( 3 )
+text = "SubTitle"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/MarginContainer/TitleRow"]
+margin_top = 404.0
+margin_right = 1176.0
+margin_bottom = 504.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/TitleRow/CenterContainer"]
+margin_left = 521.0
+margin_right = 655.0
+margin_bottom = 100.0
+custom_constants/separation = 20
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="RestartBtn" parent="Panel/MarginContainer/TitleRow/CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_right = 134.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 3 )
+text = "RESTART"
+
+[node name="QuitBtn" parent="Panel/MarginContainer/TitleRow/CenterContainer/VBoxContainer" instance=ExtResource( 2 )]
+margin_top = 60.0
+margin_right = 134.0
+margin_bottom = 100.0
+custom_fonts/font = ExtResource( 3 )
+text = "MAIN MENU"
+
+[node name="SoundManager" parent="." instance=ExtResource( 5 )]
+
+[connection signal="pressed" from="Panel/MarginContainer/TitleRow/CenterContainer/VBoxContainer/RestartBtn" to="." method="_on_RestartBtn_pressed"]
+[connection signal="pressed" from="Panel/MarginContainer/TitleRow/CenterContainer/VBoxContainer/QuitBtn" to="." method="_on_QuitBtn_pressed"]

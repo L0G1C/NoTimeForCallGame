@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Textures/gamejam.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Game/GameManager.gd" type="Script" id=2]
-[ext_resource path="res://Scenes/Game/SoundManager.gd" type="Script" id=3]
-[ext_resource path="res://Assets/Audio/game_music.wav" type="AudioStream" id=4]
+[ext_resource path="res://Scenes/UI/SoundManager.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Game/UI/ResourceContainer.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Node2D"]
@@ -64,12 +63,7 @@ margin_top = 212.0
 margin_bottom = 250.0
 ResourceType = "Sanity"
 
-[node name="SoundManager" type="Node" parent="."]
-script = ExtResource( 3 )
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager"]
-stream = ExtResource( 4 )
-volume_db = -10.488
+[node name="SoundManager" parent="." instance=ExtResource( 3 )]
 
 [connection signal="resource_empty" from="CanvasLayer/WorkLifeContainer/Resources/Money" to="." method="_on_Money_resource_empty"]
 [connection signal="resource_empty" from="CanvasLayer/WorkLifeContainer/Resources/Family" to="." method="_on_Family_resource_empty"]
