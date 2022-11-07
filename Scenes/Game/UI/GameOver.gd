@@ -1,6 +1,6 @@
 extends Control
 
-var game_over_music = load("res://Assets/Audio/game_over.wav")
+var game_over_music = load("res://Assets/Audio/Music/game_over.wav")
 var sub_title
 
 func _ready():
