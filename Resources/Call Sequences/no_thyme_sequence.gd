@@ -24,5 +24,15 @@ export(Array) var Events : Array = [
 	"WrongAnswerText": "Ugh, fine.",
 	"WrongAnswerResults": [-2, -2, -2]	
 	}
+	,{
+	"EventId": 2,
+	"CallerName": "Cal",
+	"CallerVoice": "callervoice1",
+	"Text": "Bro gimme or I'mma stab you",
+	"CorrectAnswerText": "Come at me bro!",
+	"CorrectAnswerResults": [1, 1, 1],
+	"WrongAnswerText": "Okay I surrender!",
+	"WrongAnswerResults": [-2, -2, -2]	
+	}
 ]	
 	

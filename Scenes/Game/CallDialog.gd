@@ -8,6 +8,8 @@ onready var pBar = $BackgroundPanel/VBoxContainer/ProgressBar
 signal success
 signal fail
 
+var iscal = false;
+
 func _ready():
 	pass # Replace with function body.
 
@@ -19,7 +21,7 @@ func _on_ProgressTimer_timeout():
 			pBar.value -= 1
 		else:
 			self.hide()
-			emit_signal("fail", wrong_results)
+			emit_signal("fail", wrong_results, false)
 			queue_free()
 			
 func handle_dialog_buttons(action):
@@ -29,6 +31,6 @@ func handle_dialog_buttons(action):
 			self.hide()
 			self.queue_free()
 		"wrong":
-			emit_signal("fail", wrong_results)
+			emit_signal("fail", wrong_results, iscal)
 			self.hide()
 			self.queue_free()

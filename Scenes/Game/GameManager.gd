@@ -51,6 +51,8 @@ func construct_dialog(eventDict, color):
 	dialog.modulate = Color(color)
 	dialog.connect("success", self, "dialog_success")
 	dialog.connect("fail", self, "dialog_fail")
+	if eventDict["CallerName"] == "Cal":
+		dialog.iscal = true
 	$Dialogs.add_child(dialog)
 	
 	# setting random position and using show() instead of popup() so that we can interact with other popups
@@ -62,8 +64,15 @@ func construct_dialog(eventDict, color):
 	
 func game_over(player_won):
 	var game_over = GameOverScreen.instance()
-	print(player_won)
-	game_over.sub_title = "Oh no!" if !player_won else "You survived!"
+	game_over.sub_title = "You survived!"
+	if player_won == "cal":
+		game_over.sub_title = "NO THYME FOR CAL!"
+	if player_won == "money":
+		game_over.sub_title = "HAHA you're a broke mofo now :)"
+	if player_won == "family":
+		game_over.sub_title = "Lol, you neglected your family, what a great spouse/parent you are XD"
+	if player_won == "sanity":
+		game_over.sub_title = "You lost all the sanity you hade left, oh well... Asylums are cozy... Right?"
 	$CanvasLayer.add_child(game_over)
 	get_tree().paused = true
 
@@ -72,19 +81,21 @@ func dialog_success(results_array):
 	$CanvasLayer/WorkLifeContainer/Resources/Family/ProgressBar.value += results_array[1]
 	$CanvasLayer/WorkLifeContainer/Resources/Sanity/ProgressBar.value += results_array[2]
 	
-func dialog_fail(results_array):
+func dialog_fail(results_array, iscal):
 	$CanvasLayer/WorkLifeContainer/Resources/Money/ProgressBar.value += results_array[0]
 	$CanvasLayer/WorkLifeContainer/Resources/Family/ProgressBar.value += results_array[1]
 	$CanvasLayer/WorkLifeContainer/Resources/Sanity/ProgressBar.value += results_array[2]
+	if iscal:
+		game_over("cal")
 
 
 func _on_Money_resource_empty():
-	game_over(false)
+	game_over("money")
 
 
 func _on_Family_resource_empty():
-	game_over(false)
+	game_over("family")
 
 
 func _on_Sanity_resource_empty():
-	game_over(false)
+	game_over("sanity")
