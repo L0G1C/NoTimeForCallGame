@@ -1,0 +1,36 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Call Sequences/spouse_sequence.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+sequence_id = 2
+color = "ccccff"
+Events = [ {
+"CallerName": "Spouse",
+"CallerVoice": "voice3",
+"CorrectAnswerResults": [ -1, 2, 0 ],
+"CorrectAnswerText": "Yup!",
+"EventId": 0,
+"Text": "Hi honey, did you pick up Groceries yet?",
+"WrongAnswerResults": [ 0, -2, -1 ],
+"WrongAnswerText": "Uh oh..."
+}, {
+"CallerName": "Spouse",
+"CallerVoice": "voice3",
+"CorrectAnswerResults": [ 2, 1, -1 ],
+"CorrectAnswerText": "Nah, let's forget it.",
+"EventId": 1,
+"Text": "And what about that other errand you mentioned?",
+"WrongAnswerResults": [ 1, -4, -2 ],
+"WrongAnswerText": "Leave me alone!"
+}, {
+"CallerName": "Spouse",
+"CallerVoice": "voice3",
+"CorrectAnswerResults": [ 1, 3, 0 ],
+"CorrectAnswerText": "On it!",
+"EventId": 2,
+"Text": "Well, if you hurry home, you can make dinner.",
+"WrongAnswerResults": [ -3, -4, -1 ],
+"WrongAnswerText": "I ate on the road..."
+} ]

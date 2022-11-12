@@ -29,7 +29,7 @@ custom_styles/panel = SubResource( 1 )
 margin_left = 2.0
 margin_top = 2.0
 margin_right = 1278.0
-margin_bottom = 718.0
+margin_bottom = 793.0
 custom_constants/margin_right = 50
 custom_constants/margin_top = 50
 custom_constants/margin_left = 50
@@ -39,7 +39,7 @@ custom_constants/margin_bottom = 50
 margin_left = 50.0
 margin_top = 50.0
 margin_right = 1226.0
-margin_bottom = 666.0
+margin_bottom = 741.0
 custom_constants/separation = 160
 
 [node name="Title" type="Label" parent="Panel/MarginContainer/TitleRow"]
@@ -57,10 +57,18 @@ custom_fonts/font = ExtResource( 3 )
 text = "SubTitle"
 align = 1
 
-[node name="CenterContainer" type="CenterContainer" parent="Panel/MarginContainer/TitleRow"]
+[node name="TimeScore" type="Label" parent="Panel/MarginContainer/TitleRow"]
 margin_top = 404.0
 margin_right = 1176.0
-margin_bottom = 504.0
+margin_bottom = 431.0
+custom_fonts/font = ExtResource( 3 )
+text = "TimeScore"
+align = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel/MarginContainer/TitleRow"]
+margin_top = 591.0
+margin_right = 1176.0
+margin_bottom = 691.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/TitleRow/CenterContainer"]
 margin_left = 521.0

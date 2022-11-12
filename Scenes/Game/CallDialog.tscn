@@ -19,7 +19,7 @@ margin_left = -150.0
 margin_top = -75.0
 margin_right = 150.0
 margin_bottom = 75.0
-rect_min_size = Vector2( 300, 150 )
+rect_min_size = Vector2( 600, 200 )
 window_title = "Dummy Caller Name"
 dialog_text = "Dummy Text"
 dialog_hide_on_ok = false
@@ -48,7 +48,7 @@ anchor_bottom = 1.0
 margin_top = -20.0
 
 [node name="ProgressBar" type="ProgressBar" parent="BackgroundPanel/VBoxContainer"]
-margin_right = 300.0
+margin_right = 584.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 0, 20 )
 max_value = 3.0

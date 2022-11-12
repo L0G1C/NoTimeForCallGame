@@ -25,15 +25,33 @@ _global_script_classes=[ {
 "path": "res://Scripts/GameLog.gd"
 }, {
 "base": "Resource",
+"class": "ManagerSequence",
+"language": "GDScript",
+"path": "res://Resources/Call Sequences/manager_sequence.gd"
+}, {
+"base": "Resource",
 "class": "NoThymeSequence",
 "language": "GDScript",
 "path": "res://Resources/Call Sequences/no_thyme_sequence.gd"
+}, {
+"base": "Resource",
+"class": "PrincipalSequence",
+"language": "GDScript",
+"path": "res://Resources/Call Sequences/principal_sequence.gd"
+}, {
+"base": "Resource",
+"class": "SpouseSequence",
+"language": "GDScript",
+"path": "res://Resources/Call Sequences/spouse_sequence.gd"
 } ]
 _global_script_class_icons={
 "AppLog": "",
 "AppSettings": "",
 "GameLog": "",
-"NoThymeSequence": ""
+"ManagerSequence": "",
+"NoThymeSequence": "",
+"PrincipalSequence": "",
+"SpouseSequence": ""
 }
 
 [application]

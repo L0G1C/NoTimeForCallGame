@@ -13,7 +13,8 @@ export(Array) var Events : Array = [
 	"CorrectAnswerText": "No way, man.",
 	"CorrectAnswerResults": [1, 1, 1],
 	"WrongAnswerText": "Sure!",
-	"WrongAnswerResults": [-1, -1, -1]},
+	"WrongAnswerResults": [-1, -1, -1]
+	},
 	{
 	"EventId": 1,
 	"CallerName": "Cal",
@@ -22,7 +23,7 @@ export(Array) var Events : Array = [
 	"CorrectAnswerText": "Fuck off, bro!",
 	"CorrectAnswerResults": [1, 1, 1],
 	"WrongAnswerText": "Ugh, fine.",
-	"WrongAnswerResults": [-2, -2, -2]	
+	"WrongAnswerResults": [-1, -1, -1]
 	}
 	,{
 	"EventId": 2,
@@ -32,7 +33,7 @@ export(Array) var Events : Array = [
 	"CorrectAnswerText": "Come at me bro!",
 	"CorrectAnswerResults": [1, 1, 1],
 	"WrongAnswerText": "Okay I surrender!",
-	"WrongAnswerResults": [-2, -2, -2]	
+	"WrongAnswerResults": [-1, -1, -1]
 	}
 ]	
 	

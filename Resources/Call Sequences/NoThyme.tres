@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource( 1 )
 sequence_id = 0
-color = "FFFFFF"
+color = "c1e1c1"
 Events = [ {
 "CallerName": "Cal",
 "CallerVoice": "callervoice1",
@@ -22,7 +22,7 @@ Events = [ {
 "CorrectAnswerText": "Fuck off, bro!",
 "EventId": 1,
 "Text": "Dude...I really need that thyme tho...",
-"WrongAnswerResults": [ -2, -2, -2 ],
+"WrongAnswerResults": [ -1, -1, -1 ],
 "WrongAnswerText": "Ugh, fine."
 }, {
 "CallerName": "Cal",
@@ -31,6 +31,6 @@ Events = [ {
 "CorrectAnswerText": "Come at me bro!",
 "EventId": 2,
 "Text": "Bro gimme or I'mma stab you",
-"WrongAnswerResults": [ -2, -2, -2 ],
+"WrongAnswerResults": [ -1, -1, -1 ],
 "WrongAnswerText": "Okay I surrender!"
 } ]

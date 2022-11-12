@@ -10,13 +10,13 @@ func _ready():
 	match (ResourceType):
 		"Money":
 			$Label.text = "Money"
-			$ProgressBar.modulate = Color(0,1,0)
+			$ProgressBar.modulate = Color("c1e1c1")
 		"Family":
 			$Label.text = "Family"
-			$ProgressBar.modulate = Color(0,0,1)
+			$ProgressBar.modulate = Color("ffa07a")
 		"Sanity":
 			$Label.text = "Sanity"
-			$ProgressBar.modulate = Color(1,0,0)
+			$ProgressBar.modulate = Color("9adfff")
 
 func _process(_delta):
 	if $ProgressBar.value == 0:

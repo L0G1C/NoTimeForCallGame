@@ -1,0 +1,36 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Call Sequences/manager_sequence.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+sequence_id = 1
+color = "ffa07a"
+Events = [ {
+"CallerName": "Boss",
+"CallerVoice": "voice2",
+"CorrectAnswerResults": [ 3, -2, -3 ],
+"CorrectAnswerText": "Sure, boss.",
+"EventId": 0,
+"Text": "Hey there. We're going to need you to come in on Saturday.",
+"WrongAnswerResults": [ -3, 1, 2 ],
+"WrongAnswerText": "Uh..no can do."
+}, {
+"CallerName": "Boss",
+"CallerVoice": "voice2",
+"CorrectAnswerResults": [ -3, 1, 3 ],
+"CorrectAnswerText": "I didn't get the memo.",
+"EventId": 1,
+"Text": "Did you turn in your TPS report!?",
+"WrongAnswerResults": [ 1, -1, -3 ],
+"WrongAnswerText": "Always."
+}, {
+"CallerName": "Boss",
+"CallerVoice": "voice2",
+"CorrectAnswerResults": [ 1, 1, -3 ],
+"CorrectAnswerText": "Roger that.",
+"EventId": 2,
+"Text": "We need to talk about your performance...",
+"WrongAnswerResults": [ -4, -1, 3 ],
+"WrongAnswerText": "Come at me bro!"
+} ]

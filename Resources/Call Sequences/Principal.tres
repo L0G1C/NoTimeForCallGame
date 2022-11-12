@@ -1,0 +1,45 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Call Sequences/principal_sequence.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+sequence_id = 3
+color = "eedc82"
+Events = [ {
+"CallerName": "Principal Jones",
+"CallerVoice": "voice2",
+"CorrectAnswerResults": [ -1, 2, 1 ],
+"CorrectAnswerText": "Of course!",
+"EventId": 0,
+"Text": "Hello there, I'm your daughter's school principal. Will you be attending the assembly this Friday?",
+"WrongAnswerResults": [ 2, -3, -2 ],
+"WrongAnswerText": "What Assembly?"
+}, {
+"CallerName": "Principal Jones",
+"CallerVoice": "voice2",
+"CorrectAnswerResults": [ -3, 2, 0 ],
+"CorrectAnswerText": "I'll pick her up.",
+"EventId": 1,
+"Text": "You left your daughter at school.",
+"WrongAnswerResults": [ 4, -4, -2 ],
+"WrongAnswerText": "You keep her."
+}, {
+"CallerName": "Principal Jones",
+"CallerVoice": "voice2",
+"CorrectAnswerResults": [ 4, -2, 3 ],
+"CorrectAnswerText": "Ugh...",
+"EventId": 2,
+"Text": "It's that time of year again! Can we count on you for the fall fund drive?",
+"WrongAnswerResults": [ -4, 4, -2 ],
+"WrongAnswerText": "Totally!"
+}, {
+"CallerName": "Principal Jones",
+"CallerVoice": "voice2",
+"CorrectAnswerResults": [ -3, 3, -2 ],
+"CorrectAnswerText": "That's right.",
+"EventId": 3,
+"Text": "Hello it's Principal Jones again, did you want to enroll your son in our upcoming field trip?",
+"WrongAnswerResults": [ 3, -3, 2 ],
+"WrongAnswerText": "Can't afford it."
+} ]

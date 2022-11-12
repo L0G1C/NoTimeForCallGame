@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/Textures/gamejam.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Game/GameManager.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/UI/SoundManager.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Themes/Fonts/48-Roboto-font.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Scenes/Game/UI/ResourceContainer.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Node2D"]
@@ -63,8 +64,43 @@ margin_top = 212.0
 margin_bottom = 250.0
 ResourceType = "Sanity"
 
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -150.0
+margin_right = 150.0
+margin_bottom = 50.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+alignment = 1
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/Panel/HBoxContainer"]
+margin_left = 74.0
+margin_right = 194.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 4 )
+text = "Time:"
+
+[node name="ScoreText" type="Label" parent="CanvasLayer/Panel/HBoxContainer"]
+margin_left = 198.0
+margin_right = 225.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 4 )
+text = "0"
+
 [node name="SoundManager" parent="." instance=ExtResource( 3 )]
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="ScoreTimer" type="Timer" parent="."]
+autostart = true
 
 [connection signal="resource_empty" from="CanvasLayer/WorkLifeContainer/Resources/Money" to="." method="_on_Money_resource_empty"]
 [connection signal="resource_empty" from="CanvasLayer/WorkLifeContainer/Resources/Family" to="." method="_on_Family_resource_empty"]
 [connection signal="resource_empty" from="CanvasLayer/WorkLifeContainer/Resources/Sanity" to="." method="_on_Sanity_resource_empty"]
+[connection signal="timeout" from="GameTimer" to="." method="_on_GameTimer_timeout"]
+[connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
