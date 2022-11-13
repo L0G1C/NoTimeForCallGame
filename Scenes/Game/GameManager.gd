@@ -5,6 +5,7 @@ var time_score = 0
 
 onready var dialog_countdown_timer = 0
 onready var rng = RandomNumberGenerator.new()
+
 var call_sequence_data : Dictionary
 var call_sequence_event_tracker : Dictionary
 var NoTimeSequence = preload("res://Resources/Call Sequences/NoThyme.tres")
@@ -99,17 +100,50 @@ func game_over(player_won):
 	get_tree().paused = true
 
 func dialog_success(results_array):
+	
+	#Display Results Icon and play sound depending on positive or negative results
 	$CanvasLayer/WorkLifeContainer/Resources/Money/ProgressBar.value += results_array[0]
+	if results_array[0] > 0:
+		$CanvasLayer/WorkLifeContainer/Resources/Money/AnimationPlayer.play("Plus Float")		
+	else: 
+		$CanvasLayer/WorkLifeContainer/Resources/Money/AnimationPlayer.play("Minus Float")		
+		
 	$CanvasLayer/WorkLifeContainer/Resources/Family/ProgressBar.value += results_array[1]
+	if results_array[1] > 0:
+		$CanvasLayer/WorkLifeContainer/Resources/Family/AnimationPlayer.play("Plus Float")		
+	else: 
+		$CanvasLayer/WorkLifeContainer/Resources/Family/AnimationPlayer.play("Minus Float")		
+	
 	$CanvasLayer/WorkLifeContainer/Resources/Sanity/ProgressBar.value += results_array[2]
+	if results_array[2] > 0:
+		$CanvasLayer/WorkLifeContainer/Resources/Sanity/AnimationPlayer.play("Plus Float")		
+	else: 
+		$CanvasLayer/WorkLifeContainer/Resources/Sanity/AnimationPlayer.play("Minus Float")		
+		
+	$SoundManager.play_resource_effect()
 	
 func dialog_fail(results_array, iscal):
+	#Display Results Icon and play sound depending on positive or negative results
 	$CanvasLayer/WorkLifeContainer/Resources/Money/ProgressBar.value += results_array[0]
+	if results_array[0] > 0:
+		$CanvasLayer/WorkLifeContainer/Resources/Money/AnimationPlayer.play("Plus Float")		
+	else: 
+		$CanvasLayer/WorkLifeContainer/Resources/Money/AnimationPlayer.play("Minus Float")
+		
 	$CanvasLayer/WorkLifeContainer/Resources/Family/ProgressBar.value += results_array[1]
+	if results_array[1] > 0:
+		$CanvasLayer/WorkLifeContainer/Resources/Family/AnimationPlayer.play("Plus Float")
+	else: 
+		$CanvasLayer/WorkLifeContainer/Resources/Family/AnimationPlayer.play("Minus Float")
+	
 	$CanvasLayer/WorkLifeContainer/Resources/Sanity/ProgressBar.value += results_array[2]
+	if results_array[2] > 0:
+		$CanvasLayer/WorkLifeContainer/Resources/Sanity/AnimationPlayer.play("Plus Float")
+	else: 
+		$CanvasLayer/WorkLifeContainer/Resources/Sanity/AnimationPlayer.play("Minus Float")
 	if iscal:
 		game_over("cal")
-
+	$SoundManager.play_resource_effect()
 
 func _on_Money_resource_empty():
 	game_over("money")

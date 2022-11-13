@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "ManagerSequence",
 "language": "GDScript",
-"path": "res://Resources/Call Sequences/manager_sequence.gd"
+"path": "res://Resources/Call Sequences/telemarketers.gd"
 }, {
 "base": "Resource",
 "class": "NoThymeSequence",

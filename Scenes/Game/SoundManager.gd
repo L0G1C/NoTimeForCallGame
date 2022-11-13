@@ -1,13 +1,12 @@
 extends Node
 
+onready var plus_sfx = load("res://Assets/Audio/SFX/plus-resource.wav")
+onready var minus_sfx = load("res://Assets/Audio/SFX/minus-resource.wav")
 
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
+	$MusicStreamPlayer.play()
+
+
+func play_resource_effect():
+	$AudioStreamPlayer.set_stream(plus_sfx)
 	$AudioStreamPlayer.play()
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

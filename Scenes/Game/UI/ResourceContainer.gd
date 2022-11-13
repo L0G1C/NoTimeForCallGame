@@ -21,3 +21,10 @@ func _ready():
 func _process(_delta):
 	if $ProgressBar.value == 0:
 		emit_signal("resource_empty")
+		
+func _on_plus_anim_complete():
+	$Plus.modulate = Color(1, 1, 1, 0)
+	
+func _on_mius_anim_complete():
+	$Minus.modulate = Color(1, 1, 1, 0)
+	

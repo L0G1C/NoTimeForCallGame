@@ -5,8 +5,8 @@ var sub_title
 var time_lived
 
 func _ready():
-	$SoundManager/AudioStreamPlayer.stream = game_over_music
-	$SoundManager/AudioStreamPlayer.play()
+	$SoundManager/MusicStreamPlayer.stream = game_over_music
+	$SoundManager/MusicStreamPlayer.play()
 	$Panel/MarginContainer/TitleRow/SubTitle.text = sub_title
 	$Panel/MarginContainer/TitleRow/TimeScore.text = "You survived for %s seconds!" % time_lived
 
