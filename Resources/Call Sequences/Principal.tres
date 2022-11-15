@@ -18,7 +18,7 @@ Events = [ {
 }, {
 "CallerName": "Principal Jones",
 "CallerVoice": "voice2",
-"CorrectAnswerResults": [ -3, 2, 0 ],
+"CorrectAnswerResults": [ -3, 2, 1 ],
 "CorrectAnswerText": "I'll pick her up.",
 "EventId": 1,
 "Text": "You left your daughter at school.",

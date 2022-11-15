@@ -1,45 +1,62 @@
 extends Node2D
 
-var NEXT_DIALOG_RATE = 5.5
-var time_score = 0
-
-onready var dialog_countdown_timer = 0
 onready var rng = RandomNumberGenerator.new()
 
+const NEXT_DIALOG_RATE = 0.88
+var time_score = 0
 var call_sequence_data : Dictionary
 var call_sequence_event_tracker : Dictionary
 var NoTimeSequence = preload("res://Resources/Call Sequences/NoThyme.tres")
 var BossSequence = preload("res://Resources/Call Sequences/Boss.tres")
 var SpouseSequence = preload("res://Resources/Call Sequences/Spouse.tres")
+var PrincipalSequence = preload("res://Resources/Call Sequences/Principal.tres")
+var TelemarketersSequence = preload("res://Resources/Call Sequences/Telemarketers.tres")
 var CallDialog = preload("res://Scenes/Game/CallDialog.tscn");
 var GameOverScreen = preload("res://Scenes/Game/UI/GameOver.tscn")
 
-func _ready():		
+func _ready():
+	SoundManager.start_game_music()
 	call_sequence_data[NoTimeSequence.sequence_id] =  NoTimeSequence
 	call_sequence_data[BossSequence.sequence_id] =  BossSequence
 	call_sequence_data[SpouseSequence.sequence_id] =  SpouseSequence
+	call_sequence_data[PrincipalSequence.sequence_id] =  PrincipalSequence
+	call_sequence_data[TelemarketersSequence.sequence_id] =  TelemarketersSequence
+	
 	call_sequence_event_tracker[NoTimeSequence.sequence_id] = 0
 	call_sequence_event_tracker[BossSequence.sequence_id] = 0
 	call_sequence_event_tracker[SpouseSequence.sequence_id] = 0
+	call_sequence_event_tracker[PrincipalSequence.sequence_id] = 0
+	call_sequence_event_tracker[TelemarketersSequence.sequence_id] = 0
 	
 func _process(delta):
-	dialog_countdown_timer += delta
-	if dialog_countdown_timer >= NEXT_DIALOG_RATE:		
-		dialog_countdown_timer = 0
-		popup_random_call_sequence()
 	$CanvasLayer/Panel/HBoxContainer/ScoreText.text = String(time_score)
 	
 
 func popup_random_call_sequence():
+	print("Call Sequences")
+	for c in call_sequence_data.keys():
+		print("sequence: %s" % call_sequence_data[c].sequence_id)
+	
+	# if the only call sequence left is Cal, Game Over!
+	if call_sequence_data.size() == 1:		
+		game_over("")
+
 	# Have to use RNG for randi_range
 	rng.randomize()
-	var random_call_sequence = rng.randi_range(0, call_sequence_data.size() - 1)
+	# only include Cal call in the pool 4/5 times.
+	var includeCal = rng.randi_range(1, 5)
+	var random_call_sequence
+	if includeCal > 1:
+		random_call_sequence = rng.randi_range(0, call_sequence_data.size() - 1)
+	else:
+		random_call_sequence = rng.randi_range(1, call_sequence_data.size() - 1)
 	
 	# back out if the squence has already been removed 
 	if !call_sequence_data.keys().has(random_call_sequence):
 		return
 	
-	var call_sequence = call_sequence_data[random_call_sequence]
+	var call_sequenceid = call_sequence_data.keys()[random_call_sequence]
+	var call_sequence = call_sequence_data[call_sequenceid]
 	var eventToShow = call_sequence_event_tracker[call_sequence.sequence_id]
 	
 	
@@ -64,6 +81,7 @@ func construct_dialog(eventDict, color):
 	dialog.get_close_button().visible = false
 	dialog.window_title = eventDict["CallerName"]
 	dialog.dialog_text = eventDict["Text"]
+	dialog.caller_voice = eventDict["CallerVoice"]
 	dialog.add_button(eventDict["CorrectAnswerText"], false, "correct")
 	dialog.add_button(eventDict["WrongAnswerText"], false, "wrong")
 	dialog.correct_results = eventDict["CorrectAnswerResults"]
@@ -120,7 +138,7 @@ func dialog_success(results_array):
 	else: 
 		$CanvasLayer/WorkLifeContainer/Resources/Sanity/AnimationPlayer.play("Minus Float")		
 		
-	$SoundManager.play_resource_effect()
+	SoundManager.play_resource_effect()
 	
 func dialog_fail(results_array, iscal):
 	#Display Results Icon and play sound depending on positive or negative results
@@ -143,7 +161,7 @@ func dialog_fail(results_array, iscal):
 		$CanvasLayer/WorkLifeContainer/Resources/Sanity/AnimationPlayer.play("Minus Float")
 	if iscal:
 		game_over("cal")
-	$SoundManager.play_resource_effect()
+	SoundManager.play_resource_effect()
 
 func _on_Money_resource_empty():
 	game_over("money")
@@ -158,10 +176,12 @@ func _on_Sanity_resource_empty():
 
 
 func _on_GameTimer_timeout():
-	print("Time Increased!")
-	NEXT_DIALOG_RATE *= 0.85 # Subtract by 15%
+	popup_random_call_sequence()
+	if $GameTimer.wait_time >= 0.5:
+		$GameTimer.wait_time = $GameTimer.wait_time * NEXT_DIALOG_RATE	
 	
-
-
+	$GameTimer.start()
+	SoundManager.speed_up()
+	
 func _on_ScoreTimer_timeout():
 	time_score += 1

@@ -27,7 +27,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "ManagerSequence",
 "language": "GDScript",
-"path": "res://Resources/Call Sequences/telemarketers.gd"
+"path": "res://Resources/Call Sequences/manager_sequence.gd"
 }, {
 "base": "Resource",
 "class": "NoThymeSequence",
@@ -43,6 +43,11 @@ _global_script_classes=[ {
 "class": "SpouseSequence",
 "language": "GDScript",
 "path": "res://Resources/Call Sequences/spouse_sequence.gd"
+}, {
+"base": "Resource",
+"class": "TelemarketersSequence",
+"language": "GDScript",
+"path": "res://Resources/Call Sequences/telemarketers.gd"
 } ]
 _global_script_class_icons={
 "AppLog": "",
@@ -51,7 +56,8 @@ _global_script_class_icons={
 "ManagerSequence": "",
 "NoThymeSequence": "",
 "PrincipalSequence": "",
-"SpouseSequence": ""
+"SpouseSequence": "",
+"TelemarketersSequence": ""
 }
 
 [application]
@@ -66,6 +72,7 @@ Config="*res://Scripts/Config.gd"
 InGameMenuController="*res://Scripts/InGameMenuController.gd"
 SceneLoader="*res://Scripts/SceneLoader.gd"
 AppLogger="*res://Scripts/AppLogger.gd"
+SoundManager="*res://Scenes/UI/SoundManager.tscn"
 
 [display]
 

@@ -68,6 +68,7 @@ func _ready():
 	_setup_for_web()
 	_setup_version_name()
 	animation_state_machine = $MenuAnimationTree.get("parameters/playback")
+	SoundManager.start_title_music()
 
 func _on_Credits_end_reached():
 	_close_sub_menu()

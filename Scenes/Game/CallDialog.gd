@@ -1,5 +1,6 @@
 extends AcceptDialog
 
+var caller_voice
 var progress_timeout = false
 var correct_results : Array
 var wrong_results : Array
@@ -23,8 +24,14 @@ func _process(_delta):
 		animate_text_counter += 1
 	
 func animate_dialog():
+	SoundManager.play_ring()
 	for c in dialog_text:
 		text_to_animate.append(c)
+	
+	#play sounds for x amount of time appropriate to length
+	SoundManager.play_voice(text_to_animate.size(), caller_voice)
+
+	
 	self.dialog_text = ""
 	animate_text = true
 

@@ -8,7 +8,7 @@ sequence_id = 0
 color = "c1e1c1"
 Events = [ {
 "CallerName": "Cal",
-"CallerVoice": "callervoice1",
+"CallerVoice": "voice1",
 "CorrectAnswerResults": [ 1, 1, 1 ],
 "CorrectAnswerText": "No way, man.",
 "EventId": 0,
@@ -17,7 +17,7 @@ Events = [ {
 "WrongAnswerText": "Sure!"
 }, {
 "CallerName": "Cal",
-"CallerVoice": "callervoice1",
+"CallerVoice": "voice1",
 "CorrectAnswerResults": [ 1, 1, 1 ],
 "CorrectAnswerText": "Fuck off, bro!",
 "EventId": 1,
@@ -26,7 +26,7 @@ Events = [ {
 "WrongAnswerText": "Ugh, fine."
 }, {
 "CallerName": "Cal",
-"CallerVoice": "callervoice1",
+"CallerVoice": "voice1",
 "CorrectAnswerResults": [ 1, 1, 1 ],
 "CorrectAnswerText": "Come at me bro!",
 "EventId": 2,

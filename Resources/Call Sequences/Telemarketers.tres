@@ -1,0 +1,36 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Resources/Call Sequences/telemarketers.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+sequence_id = 4
+color = "b6dde2"
+Events = [ {
+"CallerName": "Telemarketers",
+"CallerVoice": "voice3",
+"CorrectAnswerResults": [ 3, 1, -2 ],
+"CorrectAnswerText": "STAHP!",
+"EventId": 0,
+"Text": "Hello we've been trying to reach you about your cars extended warranty.",
+"WrongAnswerResults": [ -3, -3, -1 ],
+"WrongAnswerText": "Take My Money!"
+}, {
+"CallerName": "Telemarketers",
+"CallerVoice": "voice1",
+"CorrectAnswerResults": [ 3, 1, 1 ],
+"CorrectAnswerText": "Seems sus.",
+"EventId": 1,
+"Text": "I'm a Nigerian prince and I want to give you $50,000.",
+"WrongAnswerResults": [ -5, -2, -1 ],
+"WrongAnswerText": "Give bank info."
+}, {
+"CallerName": "Telemarketers",
+"CallerVoice": "voice2",
+"CorrectAnswerResults": [ 3, 2, 2 ],
+"CorrectAnswerText": "No Thank you!",
+"EventId": 3,
+"Text": "I'm the REAL Nigerian prince, here's your last chance for free money!",
+"WrongAnswerResults": [ -5, 2, -1 ],
+"WrongAnswerText": "Take My Money!"
+} ]

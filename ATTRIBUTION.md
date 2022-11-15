@@ -1,18 +1,26 @@
 # Attribution
 ## Collaborators
 
-### Role
-Person 1  
-Person 2  
-[Person w/ Link]()  
+### Programmers
+[Cozy/Mats](https://github.com/MatsCoeckelbergh)
+[LogicaLinsanity](https://github.com/L0G1C)  
 
+### Artists
+[Cozy/Mats](https://github.com/MatsCoeckelbergh)
+[Lunalivi](https://www.twitch.tv/luna_livi)
+[LogicaLinsanity](https://github.com/L0G1C)  
+
+### SFX/Music
+[Cozy/Mats](https://github.com/MatsCoeckelbergh)
+[LogicaLinsanity](https://github.com/L0G1C)  
 
 ## Sourced / Unaffiliated
 ### Asset Type
+SFX
 #### Use Case
-Author: [Name]()  
-Source: [Domain : webpage.html]()  
-License: [License]()
+Author: [N/A]()  
+Source: [Soundscrate : https://soundscrate.com/royalty-free-music/soundscrate-phoneringing](https://soundscrate.com/royalty-free-music/soundscrate-phoneringing)  
+License: [Royalty Free]()
 
 
 ## Tools

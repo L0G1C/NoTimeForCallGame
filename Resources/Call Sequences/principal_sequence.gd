@@ -21,7 +21,7 @@ export(Array) var Events : Array = [
 	"CallerVoice": "voice2",
 	"Text": "You left your daughter at school.",
 	"CorrectAnswerText": "I'll pick her up.",
-	"CorrectAnswerResults": [-3, 2, 0],
+	"CorrectAnswerResults": [-3, 2, 1],
 	"WrongAnswerText": "You keep her.",
 	"WrongAnswerResults": [4, -4, -2]
 	},

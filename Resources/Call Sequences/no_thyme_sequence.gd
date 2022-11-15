@@ -8,7 +8,7 @@ export(Array) var Events : Array = [
 	{
 	"EventId": 0,
 	"CallerName": "Cal",
-	"CallerVoice": "callervoice1",
+	"CallerVoice": "voice1",
 	"Text": "Hey man, can I get take that Thyme off your hands?!",
 	"CorrectAnswerText": "No way, man.",
 	"CorrectAnswerResults": [1, 1, 1],
@@ -18,7 +18,7 @@ export(Array) var Events : Array = [
 	{
 	"EventId": 1,
 	"CallerName": "Cal",
-	"CallerVoice": "callervoice1",
+	"CallerVoice": "voice1",
 	"Text": "Dude...I really need that thyme tho...",
 	"CorrectAnswerText": "Fuck off, bro!",
 	"CorrectAnswerResults": [1, 1, 1],
@@ -28,7 +28,7 @@ export(Array) var Events : Array = [
 	,{
 	"EventId": 2,
 	"CallerName": "Cal",
-	"CallerVoice": "callervoice1",
+	"CallerVoice": "voice1",
 	"Text": "Bro gimme or I'mma stab you",
 	"CorrectAnswerText": "Come at me bro!",
 	"CorrectAnswerResults": [1, 1, 1],
