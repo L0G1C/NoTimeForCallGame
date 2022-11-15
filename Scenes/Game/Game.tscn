@@ -19,6 +19,7 @@ margin_bottom = 40.0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="WorkLifeContainer" type="PanelContainer" parent="CanvasLayer"]
+visible = false
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
@@ -64,6 +65,7 @@ margin_bottom = 250.0
 ResourceType = "Sanity"
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
+visible = false
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -150.0
