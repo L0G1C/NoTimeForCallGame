@@ -1,0 +1,85 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Themes/Fonts/48-Roboto-font.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Themes/Fonts/22-Roboto-font.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Assets/Textures/tutorial-buttons.PNG" type="Texture" id=3]
+[ext_resource path="res://Assets/Textures/tutorial-resources.PNG" type="Texture" id=4]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.113725, 0.109804, 0.113725, 1 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="VboxContainer" type="VBoxContainer" parent="PanelContainer"]
+margin_right = 1280.0
+margin_bottom = 720.0
+rect_min_size = Vector2( 0, 40 )
+custom_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VboxContainer"]
+margin_right = 1280.0
+margin_bottom = 57.0
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/VboxContainer/HBoxContainer"]
+margin_left = 558.0
+margin_right = 722.0
+margin_bottom = 57.0
+custom_fonts/font = ExtResource( 1 )
+text = "Tutorial"
+align = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/VboxContainer"]
+margin_top = 77.0
+margin_right = 1280.0
+margin_bottom = 677.0
+rect_min_size = Vector2( 800, 600 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="PanelContainer/VboxContainer/HBoxContainer2"]
+margin_right = 800.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 800, 600 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[center]The game is simple. Answer phone calls as they appear using one of the two buttons.[/center]"
+text = "The game is simple. Answer phone calls as they appear using one of the two buttons."
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VboxContainer/HBoxContainer2/RichTextLabel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 156.0
+margin_top = 70.0
+margin_right = -175.0
+margin_bottom = -438.0
+texture = ExtResource( 3 )
+expand = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="PanelContainer/VboxContainer/HBoxContainer2"]
+margin_left = 804.0
+margin_right = 1204.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 400, 600 )
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true
+bbcode_text = "Careful, phone call answers will either increase or decrease work-life resources. The game will end when any of them are depleted!"
+text = "Careful, phone call answers will either increase or decrease work-life resources. The game will end when any of them are depleted!"
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/VboxContainer/HBoxContainer2/RichTextLabel2"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -185.0
+margin_top = -153.0
+margin_right = 178.0
+margin_bottom = 196.0
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 5

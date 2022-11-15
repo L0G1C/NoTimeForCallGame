@@ -33,7 +33,7 @@ func _on_PlayButton_pressed():
 	play_game()
 
 func _on_TutorialButton_pressed():
-	pass
+	_open_sub_menu($TutorialMenu)
 
 func _on_OptionsButton_pressed():
 	_open_sub_menu($MasterOptionsMenu)
