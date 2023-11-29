@@ -113,7 +113,7 @@ func game_over(player_won):
 	if player_won == "family":
 		game_over.sub_title = "Lol, you neglected your family, what a great spouse/parent you are XD"
 	if player_won == "sanity":
-		game_over.sub_title = "You lost all the sanity you hade left, oh well... Asylums are cozy... Right?"
+		game_over.sub_title = "You lost all the sanity you had left, oh well... Asylums are cozy... Right?"
 	$CanvasLayer.add_child(game_over)
 	get_tree().paused = true
 
